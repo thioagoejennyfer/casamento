@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago & Jennyfer - Nosso Casamento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracota: '#ca5e36',
+                        'terracota-light': '#e07a52',
+                        'terracota-dark': '#a04a2a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+        
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .flower-decoration {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 20c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm0 20c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm-20-10c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm40 0c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10z' fill='%23CD853F' opacity='0.3'/%3E%3C/svg%3E");
+            background-size: 50px 50px;
+            background-repeat: repeat;
+        }
+        
+        .heart-float {
+            animation: heartFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .modal-backdrop {
+            backdrop-filter: blur(5px);
+        }
+        
+        .loading-bar {
+            width: 0%;
+            animation: loadingProgress 6s ease-in-out forwards;
+        }
+        
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        .sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .countdown-box {
+            background: linear-gradient(135deg, #ca5e36, #e07a52);
+            box-shadow: 0 10px 30px rgba(202, 94, 54, 0.3);
+        }
+    </style>
+</head>
+<body class="font-inter bg-white">
+    <!-- Apresentação Inicial -->
+    <div id="intro" class="fixed inset-0 z-50 bg-gradient-to-br from-white via-orange-50 to-orange-100 flex flex-col items-center justify-center">
+        <div class="text-center mb-8">
+            <div class="relative w-80 h-80 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                <img id="introImage" src="https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Casal" class="w-full h-full object-cover transition-opacity duration-300">
+                <!-- Decoração de flores ao redor -->
+                <div class="absolute -top-4 -left-4 sparkle">
+                    <svg class="w-8 h-8 text-terracota" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/>
+                    </svg>
+                </div>
+                <div class="absolute -top-4 -right-4 sparkle" style="animation-delay: 0.5s;">
+                    <svg class="w-6 h-6 text-terracota-light" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-4 -left-4 sparkle" style="animation-delay: 1s;">
+                    <svg class="w-6 h-6 text-terracota-light" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/>
+                    </svg>
+                </div>
+                <div class="absolute -bottom-4 -right-4 sparkle" style="animation-delay: 1.5s;">
+                    <svg class="w-8 h-8 text-terracota" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="font-dancing text-6xl text-terracota mb-4 drop-shadow-lg">Thiago & Jennyfer</h1>
+            <p class="font-playfair text-xl text-gray-600 mb-4">Nosso Grande Dia</p>
+            <p class="font-inter text-lg text-terracota font-medium">02 de Agosto de 2026</p>
+            <div class="mt-6">
+                <div class="w-16 h-1 bg-terracota mx-auto rounded-full"></div>
+            </div>
+        </div>
+        
+        <!-- Barra de Carregamento -->
+        <div class="w-80 bg-white rounded-full shadow-lg p-2">
+            <div class="bg-gradient-to-r from-terracota to-terracota-light h-2 rounded-full loading-bar"></div>
+        </div>
+        <p class="font-inter text-sm text-gray-500 mt-4">Preparando nosso site especial...</p>
+    </div>
+
+    <!-- Site Principal -->
+    <div id="mainSite" class="hidden">
+        <!-- Header -->
+        <header class="relative bg-gradient-to-br from-terracota-light to-terracota text-white py-20 overflow-hidden">
+            <div class="absolute inset-0 flower-decoration opacity-20"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="heart-float inline-block mb-6">
+                    <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <h1 class="font-dancing text-7xl md:text-8xl mb-4 slide-up">Thiago & Jennyfer</h1>
+                <p class="font-playfair text-2xl md:text-3xl mb-4 slide-up">Celebrando Nosso Amor</p>
+                <div class="slide-up mb-8">
+                    <p class="font-playfair text-xl mb-2">02 de Agosto de 2026 • Domingo</p>
+                    <p class="font-inter text-lg">às 16:00h</p>
+                </div>
+                <div class="flex justify-center items-center space-x-4 slide-up mb-8">
+                    <div class="w-20 h-px bg-white"></div>
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <div class="w-20 h-px bg-white"></div>
+                </div>
+                
+                <!-- Contagem Regressiva -->
+                <div class="countdown-box rounded-2xl p-6 text-white max-w-2xl mx-auto slide-up">
+                    <h3 class="font-playfair text-2xl mb-4">Faltam apenas</h3>
+                    <div id="countdown" class="grid grid-cols-4 gap-4 text-center">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <div id="days" class="font-bold text-3xl">000</div>
+                            <div class="text-sm">Dias</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <div id="hours" class="font-bold text-3xl">00</div>
+                            <div class="text-sm">Horas</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <div id="minutes" class="font-bold text-3xl">00</div>
+                            <div class="text-sm">Minutos</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                            <div id="seconds" class="font-bold text-3xl">00</div>
+                            <div class="text-sm">Segundos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação -->
+        <nav class="bg-white shadow-lg sticky top-0 z-40">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-center space-x-8 py-4">
+                    <a href="#confirmacao" class="font-medium text-terracota hover:text-terracota-dark transition-colors">Confirmação</a>
+                    <a href="#local" class="font-medium text-terracota hover:text-terracota-dark transition-colors">Local</a>
+                    <a href="#presentes" class="font-medium text-terracota hover:text-terracota-dark transition-colors">Presentes</a>
+                    <a href="#fotos" class="font-medium text-terracota hover:text-terracota-dark transition-colors">Fotos</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Seção Confirmação -->
+        <section id="confirmacao" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <svg class="w-16 h-16 text-terracota mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h2 class="font-playfair text-4xl md:text-5xl text-gray-800 mb-6">Confirme sua Presença</h2>
+                    <p class="text-lg text-gray-600 mb-8">Sua presença é muito importante para nós! Por favor, confirme sua participação em nosso grande dia.</p>
+                    <button onclick="window.open('https://assistant.google.com/tasks', '_blank')" class="bg-terracota hover:bg-terracota-dark text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Confirmar Presença
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Local -->
+        <section id="local" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <svg class="w-16 h-16 text-terracota mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <h2 class="font-playfair text-4xl md:text-5xl text-gray-800 mb-6">Local do Evento</h2>
+                    <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+                        <h3 class="font-playfair text-2xl text-terracota mb-4">Mansão Vanessa Reis</h3>
+                        <p class="text-lg text-gray-600 mb-6">R. Barão do Cerro Azul, 137 - Parque Res. Guadalajara<br>Nova Iguaçu - RJ, 26286-050</p>
+                        <button onclick="window.open('https://google.com/maps?rlz=1C1VDKB_enBR1139BR1139&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KUcqjsH9ZpkAMdQvfRbyn2OA&daddr=R.+Barão+do+Cerro+Azul,+137+-+Parque+Res.+Guadalajara,+Nova+Iguaçu+-+RJ,+26286-050', '_blank')" class="bg-terracota hover:bg-terracota-dark text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Abrir no GPS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Presentes -->
+        <section id="presentes" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <svg class="w-16 h-16 text-terracota mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <h2 class="font-playfair text-4xl md:text-5xl text-gray-800 mb-6">Lista de Presentes</h2>
+                    <p class="text-lg text-gray-600 mb-8">Sua presença já é o maior presente, mas se desejar nos presentear, preparamos uma lista especial.</p>
+                    <button onclick="window.open('https://assistant.google.com/tasks', '_blank')" class="bg-terracota hover:bg-terracota-dark text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Ver Lista de Presentes
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Fotos -->
+        <section id="fotos" class="py-20 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <svg class="w-16 h-16 text-terracota mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    </svg>
+                    <h2 class="font-playfair text-4xl md:text-5xl text-gray-800 mb-6">Álbum de Fotos</h2>
+                    <p class="text-lg text-gray-600 mb-8">Compartilhe seus momentos especiais conosco e baixe as lembranças do nosso grande dia.</p>
+                    <button onclick="showPhotoModal()" class="bg-terracota hover:bg-terracota-dark text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Acessar Álbum
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-terracota text-white py-12">
+            <div class="container mx-auto px-4 text-center">
+                <div class="heart-float inline-block mb-4">
+                    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <h3 class="font-dancing text-4xl mb-4">Thiago & Jennyfer</h3>
+                <p class="font-playfair text-lg">Obrigado por fazer parte da nossa história de amor</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal do Álbum de Fotos -->
+    <div id="photoModal" class="fixed inset-0 z-50 hidden modal-backdrop bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center">
+            <svg class="w-16 h-16 text-terracota mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>
+            <h3 class="font-playfair text-2xl text-gray-800 mb-4">Álbum Compartilhado</h3>
+            <p class="text-gray-600 mb-6">Este é um site onde você pode compartilhar seus vídeos e fotos do evento e também pode baixar!</p>
+            <div class="flex space-x-4">
+                <button onclick="closePhotoModal()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-full transition-colors">
+                    Cancelar
+                </button>
+                <button onclick="openPhotoAlbum()" class="flex-1 bg-terracota hover:bg-terracota-dark text-white font-semibold py-3 px-6 rounded-full transition-colors">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Apresentação inicial
+        const images = [
+            'https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            'https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            'https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        ];
+        
+        let currentImageIndex = 0;
+        const introImage = document.getElementById('introImage');
+        
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            introImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                introImage.src = images[currentImageIndex];
+                introImage.style.opacity = '1';
+            }, 200);
+        }
+        
+        // Contagem regressiva
+        function updateCountdown() {
+            const weddingDate = new Date('2026-08-02T16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(3, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '000';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+        
+        // Iniciar apresentação
+        setTimeout(() => {
+            const interval = setInterval(changeImage, 1000);
+            
+            setTimeout(() => {
+                clearInterval(interval);
+                document.getElementById('intro').style.opacity = '0';
+                
+                setTimeout(() => {
+                    document.getElementById('intro').classList.add('hidden');
+                    document.getElementById('mainSite').classList.remove('hidden');
+                    document.getElementById('mainSite').classList.add('fade-in');
+                    
+                    // Iniciar contagem regressiva
+                    updateCountdown();
+                    setInterval(updateCountdown, 1000);
+                }, 500);
+            }, 3000);
+        }, 1000);
+        
+        // Smooth scroll para navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Modal do álbum de fotos
+        function showPhotoModal() {
+            document.getElementById('photoModal').classList.remove('hidden');
+        }
+        
+        function closePhotoModal() {
+            document.getElementById('photoModal').classList.add('hidden');
+        }
+        
+        function openPhotoAlbum() {
+            window.open('https://assistant.google.com/tasks', '_blank');
+            closePhotoModal();
+        }
+        
+        // Fechar modal clicando fora
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhotoModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977fb0ad91056d4e',t:'MTc1NjY3NjQ2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
